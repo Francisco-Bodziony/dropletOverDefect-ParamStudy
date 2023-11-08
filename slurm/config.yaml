@@ -1,0 +1,88 @@
+problem:
+  name: DropletSeperation
+  template_case: 'originalCase'
+  type: 'parameter_variation'
+  models:
+    UNIFORM: 4
+  parameters:
+    l:
+      type: choice
+      value_type: float
+      values: ['0.00025', '0.0025']
+      log_scale: False
+      is_ordered: True
+    g:
+      type: choice
+      value_type: str
+      values: ['9.21 -3.355', '3.355 -9.21'] # 10 70
+      log_scale: False
+      is_ordered: True
+  scopes:
+    "/0.orig/theta0WaterAir":
+      l: "l"
+    "/constant/g":
+      g: "g"
+  objectives:
+    We:
+      mode: 'shell'
+      command: ['pvpython', './trial.py', '--We']
+      threshold: 5
+      minimize: True
+      lower_is_better: True      
+    Bo:
+      mode: 'shell'
+      prepare: ['echo', '$CASE_NAME']
+      command: ['pvpython', './trial.py', '--Bo']
+      threshold: 5
+      minimize: True
+      lower_is_better: True
+    L:
+      mode: 'shell'
+      command: ['pvpython', './trial.py', '--L']
+      threshold: 5
+      minimize: True
+      lower_is_better: True
+    i:
+      mode: 'shell'
+      command: ['pvpython', './trial.py', '--i']
+      threshold: 5
+      minimize: True
+      lower_is_better: True
+    n:
+      mode: 'shell'
+      command: ['pvpython', './trial.py', '--n']
+      threshold: 5
+      minimize: True
+      lower_is_better: True
+
+meta:
+  case_subdirs_to_clone:
+    - 0.orig
+    - trial.py
+    - Allrun
+    - Allclean
+    - Allrun.slurm
+  clone_destination: "./trials/"
+  case_run_mode: slurm
+  case_run_command: ['sbatch', './Allrun.slurm']
+  metric_value_mode: 'local'
+  slurm_status_query: []
+  n_trials: 4
+  n_parallel_trials: 1
+  ttl_trial: 3600
+  init_poll_wait: 0.1
+  poll_factor: 1.5
+  timeout: 10
+  use_saasbo: False
+  n_pareto_points: 5
+  stopping_strategy:
+    improvement_bar: 1e-4
+    min_trials: 300
+    window_size: 10
+
+# visualize:
+#   update_interval: 15
+#   n_latest_trials: 3
+#   zscore_bar: 15
+#   host: '0.0.0.0'
+#   port: 8888

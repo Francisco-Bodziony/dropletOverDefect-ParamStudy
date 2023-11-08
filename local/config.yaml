@@ -37,8 +37,9 @@ meta:
   case_subdirs_to_clone:
     - 0.orig
     - trial.py
+    - Allrun.slurm
   clone_destination: "./trials/"
-  case_run_mode: local
+  case_run_mode: slurm
   case_run_command: ['./Allrun', '-p']
   metric_value_mode: 'local'
   n_trials: 4

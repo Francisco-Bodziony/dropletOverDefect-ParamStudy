@@ -9,7 +9,7 @@ import argparse
 
 
 #virtualEnvPath = sys.argv[sys.argv.index('--virtual-env') + 1]
-virtualEnv = '/home/local/CSI/fb12pisy/paraview/bin/activate_this.py'
+virtualEnv = '/home/fb12pisy/paraview38/bin/activate_this.py'
 exec(open(virtualEnv).read(), {'__file__': virtualEnv})
 
 try:
