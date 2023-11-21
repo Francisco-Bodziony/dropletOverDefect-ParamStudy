@@ -8,5 +8,4 @@ rm -rf 0 *.obj *.sMesh
 rm -rf constant/polyMesh/boundary
 #rm -rf *.csv
 rm -rf err.* out.*
-
 printf "\033c"

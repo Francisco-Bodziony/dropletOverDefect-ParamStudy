@@ -19,10 +19,10 @@ dynamicFvMesh   dynamicRefineFvMesh;
 
 dynamicRefineFvMeshCoeffs
 {
-    refineInterval 25;
+    refineInterval 75;
     field           CWater;
-    lowerRefineLevel -0.99;
-    upperRefineLevel 0.99;
+    lowerRefineLevel -0.975;
+    upperRefineLevel 0.975;
     unrefineLevel   10;
     nBufferLayers   3;
     maxRefinement   4;

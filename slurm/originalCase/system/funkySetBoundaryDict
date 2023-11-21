@@ -30,7 +30,7 @@ variables
     "cy=0;"
     "cz=0;"
     "radius=2.25e-3;"
-    "epsilon=4.5e-5;"
+    "epsilon=3e-5;"
 );
             expression "tanh((-sqrt(sqr(pos().x-cx)+sqr(pos().y-cy)+sqr(pos().z-cz))+radius)/(sqrt(2)*epsilon))"; 		 
         } 
@@ -50,7 +50,7 @@ variables
     "cy=0;"
     "cz=0;"
     "radius=2.25e-3;"
-    "epsilon=4.5e-5;"
+    "epsilon=3e-5;"
 );
             expression "-tanh((-sqrt(sqr(pos().x-cx)+sqr(pos().y-cy)+sqr(pos().z-cz))+radius)/(sqrt(2)*epsilon))"; 		 
         } 

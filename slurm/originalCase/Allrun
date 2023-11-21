@@ -87,5 +87,7 @@ esac
 cp -rT 0.orig 0
 generateMeshAndCheck $appMode
 initializeCase $appMode
-#appRun $appMode 
-#return 0
+decomposePar -force -cellDist -copyUniform 
+for i in processor*; do ln -s $PWD/constant $PWD/$i/constant; done
+mpirun -np 64 phaseFieldFoam -parallel
+return 0

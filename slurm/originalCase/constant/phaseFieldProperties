@@ -45,7 +45,7 @@ phaseFieldMobility
 
     mobilityCoeffs
     {
-        kappa0              kappa0 [ -1 3 1 0 0 0 0 ] 6e-13; //sqr(epsilon)*0.1
+        kappa0              kappa0 [ -1 3 1 0 0 0 0 ] 2.5e-15; //sqr(epsilon)*0.1
 
         Yue
         {
@@ -59,7 +59,7 @@ phaseFieldMobility
 //- diffuse interface width
 diffuseInterface
 {
-    epsilon                     epsilon [ 0 1 0 0 0 0 0 ] 4.5e-5; //R/20
+    epsilon                     epsilon [ 0 1 0 0 0 0 0 ] 3e-5; //R/20
 }
 
 // ************************************************************************* //

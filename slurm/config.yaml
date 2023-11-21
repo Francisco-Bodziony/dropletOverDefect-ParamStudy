@@ -1,20 +1,20 @@
 problem:
-  name: DropletSeperation
+  name: Entrapment_0
   template_case: 'originalCase'
   type: 'parameter_variation'
   models:
-    UNIFORM: 4
+    UNIFORM: 9
   parameters:
     l:
       type: choice
       value_type: float
-      values: ['0.00025', '0.0025']
+      values: ['0.00004501', '0.0004500001', '0.0045000001'] #L/D0= 0.01, 0.1, 1
       log_scale: False
       is_ordered: True
     g:
       type: choice
       value_type: str
-      values: ['9.21 -3.355', '3.355 -9.21'] # 10 70
+      values: ['4.14589 -8.8908', '7.51491 -6.305741', '9.47571 -2.53902'] # alpha = 25 50 75
       log_scale: False
       is_ordered: True
   scopes:
@@ -64,13 +64,12 @@ meta:
     - Allrun.slurm
   clone_destination: "./trials/"
   case_run_mode: slurm
-  case_run_command: ['sbatch', './Allrun.slurm']
+  case_run_command: ['sbatch', '-J', '$CASE_NAME', './Allrun.slurm', '$CASE_PATH' ]
   metric_value_mode: 'local'
-  slurm_status_query: []
-  n_trials: 4
-  n_parallel_trials: 1
-  ttl_trial: 3600
-  init_poll_wait: 0.1
+  slurm_status_query: ['sacct', '--name', '$CASE_NAME', '-o', 'JobName%60,State', '-n']
+  init_poll_wait: 300
+  n_trials: 9
+  n_parallel_trials: 2
   poll_factor: 1.5
   timeout: 10
   use_saasbo: False

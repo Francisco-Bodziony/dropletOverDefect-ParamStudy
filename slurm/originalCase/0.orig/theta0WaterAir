@@ -28,7 +28,7 @@ boundaryField
 	type 		groovyBC;
 	variables	"";
 	//valueExpression "53+6*function";
-	valueExpression "pos().x >= 0.01-($l/2) && pos().x <= 0.01+($l/2) ? 40:100";
+	valueExpression "pos().x >= 0.006-($l/2) && pos().x <= 0.006+($l/2) ? 40:100";
 
     }
     right

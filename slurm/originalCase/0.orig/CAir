@@ -30,7 +30,7 @@ boundaryField
         //type            zeroGradient;
         type            equilibriumPhaseContactAngle;
         thetaProperties ( ( water air ) 86 95 78 0 );
-        linearisationMethod none;
+        linearisationMethod optimal;
         alpha           500{1.0};
         beta            1;
         limit           none;
